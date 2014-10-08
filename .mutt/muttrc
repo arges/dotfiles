@@ -1,0 +1,5 @@
+#folder-hook 'gmail.com' 'source ~/.mutt/account.gmail'
+folder-hook 'canonical.com' 'source ~/.mutt/account.canonical'
+
+#source ~/.mutt/account.gmail
+source ~/.mutt/account.canonical

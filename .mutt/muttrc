@@ -1,5 +1,16 @@
-#folder-hook 'gmail.com' 'source ~/.mutt/account.gmail'
+macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account.canonical<enter><change-folder>!<enter>'
+macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/account.gmail<enter><change-folder>!<enter>'
+
+folder-hook 'gmail.com' 'source ~/.mutt/account.gmail'
 folder-hook 'canonical.com' 'source ~/.mutt/account.canonical'
 
-#source ~/.mutt/account.gmail
 source ~/.mutt/account.canonical
+
+set sleep_time = 0
+
+# colors
+color normal white default
+
+# normal bindings
+bind index,pager a        group-reply
+

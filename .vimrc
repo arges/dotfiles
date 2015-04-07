@@ -1,10 +1,10 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " .vimrc
-" (c)2014 Chris J Arges <christopherarges@gmail.com>
+" (c)2014,2015 Chris J Arges <christopherarges@gmail.com>
 
 " highlight text in columns over 80 wide
-set textwidth=80
-set colorcolumn=+1
+"set textwidth=80
+set colorcolumn=80
 hi ColorColumn guibg=#000000 ctermbg=0
 
 set laststatus=2	" always keep status bar
@@ -24,3 +24,8 @@ set showmatch	" show matching brackets for .2s
 
 set background=dark	" best with dark terminals
 syntax enable		" always do syntax highlighting
+
+" spelling
+setlocal spell spelllang=en_us
+hi clear SpellBad
+hi SpellBad cterm=underline

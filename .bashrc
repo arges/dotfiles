@@ -113,6 +113,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
+################################################################################
+
 export DEBFULLNAME='Chris J Arges'
 export DEBEMAIL='chris.j.arges@canonical.com'
 alias sl='ls --color=auto'
@@ -125,6 +127,10 @@ sponsorbug() {
 	cd ~/src/bugs
 	mkdir lp$1 && cd $_
 	sponsor-patch -k67884CF6 -B sbuild -b $1 -w $2
+}
+
+dk-build() {
+	time make deb-pkg -j`nproc` LOCALVERSION=-$(git rev-parse --short HEAD)
 }
 
 export PATH=$PATH:/home/arges/src/projects/ubuntu-archive-tools

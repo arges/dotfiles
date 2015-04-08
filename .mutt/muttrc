@@ -8,6 +8,11 @@ source ~/.mutt/account.canonical
 
 set sleep_time = 0
 
+set pager_stop=yes
+bind pager <Down> next-line
+bind pager <Up> previous-line
+
+
 # colors
 color normal white default
 color hdrdefault white default

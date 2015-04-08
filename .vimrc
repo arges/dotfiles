@@ -29,3 +29,6 @@ syntax enable		" always do syntax highlighting
 setlocal spell spelllang=en_us
 hi clear SpellBad
 hi SpellBad cterm=underline
+
+" special keys
+inoremap <F5> <C-R>=strftime("%FT%T%z")<CR>

@@ -10,6 +10,13 @@ set sleep_time = 0
 
 # colors
 color normal white default
+color hdrdefault white default
+color header blue default	'^date:'
+color header red default	'^(to|cc|bcc):'
+color header green default	'^from:'
+color header yellow default	'^subject:'
+color header white default	'^user-agent:'
+color header red default	'^reply-to:'
 
 # normal bindings
 bind index,pager a        group-reply

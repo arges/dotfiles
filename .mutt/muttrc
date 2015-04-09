@@ -12,7 +12,6 @@ set pager_stop=yes
 bind pager <Down> next-line
 bind pager <Up> previous-line
 
-
 # colors
 color normal white default
 color hdrdefault white default
@@ -22,7 +21,19 @@ color header green default	'^from:'
 color header yellow default	'^subject:'
 color header white default	'^user-agent:'
 color header red default	'^reply-to:'
+color index brightyellow default ~N
 
 # normal bindings
 bind index,pager a        group-reply
 
+# mutt-patched sidebar settings
+set sidebar_width=40
+set sidebar_delim='|'
+set sidebar_shortpath=yes
+color sidebar_new yellow default
+
+bind index CP sidebar-prev
+bind index CN sidebar-next
+bind index CO sidebar-open
+macro index CB '<enter-command>toggle sidebar_visible<enter><refresh>'
+macro pager CB '<enter-command>toggle sidebar_visible<enter><redraw-screen>'

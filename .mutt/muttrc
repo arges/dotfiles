@@ -22,6 +22,7 @@ color header yellow default	'^subject:'
 color header white default	'^user-agent:'
 color header red default	'^reply-to:'
 color index brightyellow default ~N
+color index brightblack default ~R
 
 # normal bindings
 bind index,pager a        group-reply
@@ -29,11 +30,11 @@ bind index,pager a        group-reply
 # mutt-patched sidebar settings
 set sidebar_width=40
 set sidebar_delim='|'
-set sidebar_shortpath=yes
+#set sidebar_shortpath=yes
 color sidebar_new yellow default
 
-bind index CP sidebar-prev
-bind index CN sidebar-next
-bind index CO sidebar-open
-macro index CB '<enter-command>toggle sidebar_visible<enter><refresh>'
-macro pager CB '<enter-command>toggle sidebar_visible<enter><redraw-screen>'
+bind index P sidebar-prev
+bind index N sidebar-next
+bind index O sidebar-open
+macro index B '<enter-command>toggle sidebar_visible<enter><refresh>'
+macro pager B '<enter-command>toggle sidebar_visible<enter><redraw-screen>'

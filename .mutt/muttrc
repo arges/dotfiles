@@ -27,6 +27,13 @@ color index brightblack default ~R
 # normal bindings
 bind index,pager a        group-reply
 
+# gpg settings
+set pgp_use_gpg_agent = yes
+set pgp_sign_as = 67884CF6
+set pgp_timeout = 3600
+#set crypt_autosign = yes
+#set crypt_replyencrypt = yes
+
 # mutt-patched sidebar settings
 set sidebar_width=40
 set sidebar_delim='|'

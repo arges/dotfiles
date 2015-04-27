@@ -24,6 +24,15 @@ color header red default	'^reply-to:'
 color index brightyellow default ~N
 color index brightblack default ~R
 
+# patch highlighting
+color body green default "^diff \-.*"
+color body green default "^index [a-f0-9].*"
+color body green default "^\-\-\- .*"
+color body green default "^[\+]{3} .*"
+color body cyan default "^[\+][^\+]+.*"
+color body red  default "^\-[^\-]+.*"
+color body brightblue default "^@@ .*"
+
 # normal bindings
 bind index,pager a        group-reply
 

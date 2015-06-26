@@ -1,0 +1,18 @@
+# hostname of your ldap server
+$ldap_server = 'ldaps://ldap.canonical.com:636';
+# ldap base search
+$search_base = 'ou=staff,dc=canonical,dc=com';
+# ldap bind dn
+$ldap_bind_dn = 'cn=Christopher Arges,ou=staff,dc=canonical,dc=com';
+# ldap bind password
+$ldap_bind_password = 'PASSWORD';
+# list of the fields that will be used for the query
+$ldap_search_fields = 'givenname sn cn mail';
+# list of the fields that will be used for composing the answer
+$ldap_expected_answers = 'givenname sn cn mail o mozillaNickname';
+# format of the email result based on the expected answers of the ldap query
+$ldap_result_email = '${mail}';
+# format of the reAlname result based on the expected answers of the ldap query
+$ldap_result_realname = '${givenname} ${sn}';
+# format of the comment result based on the expected answers of the ldap query
+$ldap_result_comment = '(${mozillaNickname})';

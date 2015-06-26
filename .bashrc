@@ -125,7 +125,8 @@ mkdirc() {
 
 sponsorbug() {
 	cd ~/src/bugs
-	mkdir lp$1 && cd $_
+	mkdir -p lp$1
+	cd lp$1
 	sponsor-patch -k67884CF6 -B sbuild -b $1 -w $2
 }
 
@@ -133,5 +134,11 @@ dk-build() {
 	time make deb-pkg -j`nproc` LOCALVERSION=-$(git rev-parse --short HEAD)
 }
 
+send-to-kteam-ml () {
+	git send-email --identity canonical --no-chain-reply-to --thread \
+		--suppress-cc all --to kernel-team@lists.ubuntu.com $1
+}
+
 export PATH=$PATH:/home/arges/src/projects/ubuntu-archive-tools
 export PATH=/home/arges/src/projects/ubuntu-dev-tools:$PATH
+export GOPATH=/home/arges/go

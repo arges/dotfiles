@@ -54,3 +54,6 @@ bind index N sidebar-next
 bind index O sidebar-open
 macro index B '<enter-command>toggle sidebar_visible<enter><refresh>'
 macro pager B '<enter-command>toggle sidebar_visible<enter><redraw-screen>'
+
+# ldap
+set query_command = "/usr/lib/lbdb/mutt_ldap_query -i '%s'"

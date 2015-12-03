@@ -118,6 +118,7 @@ fi
 export DEBFULLNAME='Chris J Arges'
 export DEBEMAIL='chris.j.arges@canonical.com'
 alias sl='ls --color=auto'
+alias rm='rm -i'
 
 mkdirc() {
 	mkdir $1 && cd $_
@@ -137,6 +138,10 @@ dk-build() {
 send-to-kteam-ml () {
 	git send-email --identity canonical --no-chain-reply-to --thread \
 		--suppress-cc all --to kernel-team@lists.ubuntu.com $1
+}
+
+git-lola() {
+	git log --graph --decorate --pretty=oneline --abbrev-commit --all
 }
 
 export PATH=$PATH:/home/arges/src/projects/ubuntu-archive-tools

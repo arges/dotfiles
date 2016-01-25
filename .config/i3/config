@@ -124,11 +124,15 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
-        tray_output LVDS1
-	tray_padding 0
+        tray_output primary
+	tray_padding 1
 }
 
 # Start unity-settings-daemon, network manager, and use locking
 exec --no-startup-id unity-settings-daemon
 exec --no-startup-id nm-applet
 bindsym Mod1+Ctrl+l exec "gnome-screensaver-command --lock "
+
+# Setup background
+exec gconftool-2 --set /apps/nautilus/preferences/show_desktop --type boolean false
+exec feh --bg-scale /usr/share/backgrounds/Mediterranean_Sea_by_simosx.jpg

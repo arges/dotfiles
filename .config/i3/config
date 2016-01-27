@@ -131,12 +131,13 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
         tray_output primary
-	tray_padding 1
+        tray_padding 0
 }
 
 # Start unity-settings-daemon, network manager, and use locking
 exec --no-startup-id unity-settings-daemon
 exec --no-startup-id nm-applet
+exec dropbox start
 bindsym Mod1+Ctrl+l exec "gnome-screensaver-command --lock "
 
 # Setup background

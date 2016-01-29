@@ -134,7 +134,10 @@ bar {
         tray_padding 0
 }
 
-# Start unity-settings-daemon, network manager, and use locking
+# Setup keybindings for special applications
+bindsym $mod+b exec x-www-browser
+
+# Start daemon processes
 exec --no-startup-id unity-settings-daemon
 exec --no-startup-id nm-applet
 exec dropbox start

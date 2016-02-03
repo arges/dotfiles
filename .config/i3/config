@@ -152,6 +152,10 @@ exec feh --bg-scale /usr/share/backgrounds/Mediterranean_Sea_by_simosx.jpg
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5% #decrease sound volume
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound
+# PlayPause audio
+bindsym XF86AudioPlay exec "for i in $(qdbus org.mpris.MediaPlayer2.*); do qdbus $i / PlayPause; done"
+bindsym Mod1+Ctrl+p exec "for i in $(qdbus org.mpris.MediaPlayer2.*); do qdbus $i / PlayPause; done"
+
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness

@@ -29,7 +29,13 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 " spelling
 setlocal spell spelllang=en_us
 hi clear SpellBad
-hi SpellBad cterm=underline
+hi SpellBad cterm=underline,bold
+hi clear SpellCap
+hi SpellCap cterm=underline
+hi clear SpellRare
+hi SpellRare cterm=underline
+hi clear SpellLocal
+hi SpellLocal cterm=underline
 
 set modeline
 

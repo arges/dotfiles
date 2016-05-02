@@ -1,9 +1,9 @@
 # A basic .muttrc for use with Canonical
 
 # Change the following six lines to match your Canonical account details
-set imap_user = "arges"
+set imap_user = "chris.j.arges@canonical.com"
 set imap_pass = "PASSWORD"
-set smtp_url = "smtp://canonical@smtp.canonical.com:587/"
+set smtp_url = "smtps://chris.j.arges@canonical.com@smtp.gmail.com:465/"
 set smtp_pass = "PASSWORD"
 set from = "chris.j.arges@canonical.com"
 set realname = "Chris J Arges"
@@ -12,15 +12,15 @@ set realname = "Chris J Arges"
 set editor = "vim"
 
 # Basic config, you can leave this as is
-set folder = "imaps://mail.canonical.com:993"
+set folder = "imaps://imap.gmail.com:993"
 set spoolfile = "+INBOX"
 set imap_check_subscribed
-set hostname = canonical.com
+set hostname = gmail.com
 set mail_check = 120
 set timeout = 300
 set imap_keepalive = 300
-set postponed = "+[Canonical]/Drafts"
-set record = "+[Canonical]/Sent Mail"
+set record="imaps://imap.gmail.com/[Gmail]/Sent Mail"
+set postponed="imaps://imap.gmail.com/[Gmail]/Drafts"
 set header_cache=~/.mutt/cache/headers
 set message_cachedir=~/.mutt/cache/bodies
 set certificate_file=~/.mutt/certificates
@@ -37,7 +37,7 @@ alternative_order text/plain text/html *
 auto_view text/html
 bind editor <Tab> complete-query
 bind editor ^T complete
-bind editor <space> noop 
+bind editor <space> noop
 
 # Canonical keyboard shortcuts
 macro index,pager y "<enter-command>unset trash\n <delete-message>" "Canonical archive message"

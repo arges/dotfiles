@@ -1,8 +1,8 @@
 macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account.canonical<enter><change-folder>!<enter>'
-macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/account.gmail<enter><change-folder>!<enter>'
+#macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/account.gmail<enter><change-folder>!<enter>'
 
-folder-hook 'gmail.com' 'source ~/.mutt/account.gmail'
-folder-hook 'canonical.com' 'source ~/.mutt/account.canonical'
+#folder-hook 'gmail.com' 'source ~/.mutt/account.gmail'
+folder-hook 'gmail.com' 'source ~/.mutt/account.canonical'
 
 source ~/.mutt/account.canonical
 
@@ -24,14 +24,21 @@ color header red default	'^reply-to:'
 color index brightyellow default ~N
 color index brightblack default ~R
 
-# patch highlighting
-color body green default "^diff \-.*"
-color body green default "^index [a-f0-9].*"
-color body green default "^\-\-\- .*"
-color body green default "^[\+]{3} .*"
-color body cyan default "^[\+][^\+]*.*"
-color body red  default "^\-[^\-]*.*"
-color body brightblue default "^@@ .*"
+# Patch syntax highlighting
+color   body    brightwhite     default         ^[[:space:]].*
+color   body    yellow          default         ^(diff).*
+color   body    brightwhite     default         ^(\s).*
+color   body    cyan            default         ^(Signed-off-by).*
+color   body    brightwhite     default         ^(Cc)
+color   body    yellow          default         "^diff \-.*"
+color   body    brightwhite     default         "^index [a-f0-9].*"
+color   body    brightblue      default         "^---$"
+color   body    white           default         "^\-\-\- .*"
+color   body    white           default         "^[\+]{3} .*"
+color   body    green           default         "^[\+][^\+]+.*"
+color   body    red             default         "^\-[^\-]+.*"
+color   body    brightblue      default         "^@@ .*"
+color   body    brightblue      default         "^Reply to this email.*"
 
 # normal bindings
 bind index,pager a        group-reply

@@ -10,9 +10,9 @@ BZR_WHOAMI="Chris J Arges <chris.j.arges@ubuntu.com>"
 # packages to install
 PACKAGES="vim git git-email git-extras weechat chromium-browser virt-manager \
  ubuntu-dev-tools sbuild packaging-dev mumble libvirt-bin \
- lxc openssh-server whois mutt-patched htop uvtool-libvirt \
+ lxc openssh-server whois mutt htop uvtool-libvirt \
  network-manager-openvpn-gnome squid-deb-proxy msmtp msmtp-mta \
- i3-wm i3status suckless-tools feh pass"
+ pass"
 
 # gsettings to set
 GSETTINGS=(
@@ -34,7 +34,7 @@ GCONF_SETTINGS=(
 )
 
 # distribution series / arches
-DISTS="trusty wily xenial"
+DISTS="trusty xenial yakkety"
 ARCH="amd64"
 
 # dotfiles repo

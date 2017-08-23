@@ -1,10 +1,8 @@
-macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account.canonical<enter><change-folder>!<enter>'
-#macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/account.gmail<enter><change-folder>!<enter>'
+macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account.gmail<enter><change-folder>!<enter>'
 
-#folder-hook 'gmail.com' 'source ~/.mutt/account.gmail'
-folder-hook 'gmail.com' 'source ~/.mutt/account.canonical'
+folder-hook 'gmail.com' 'source ~/.mutt/account.gmail'
 
-source ~/.mutt/account.canonical
+source ~/.mutt/account.gmail
 
 set sleep_time = 0
 

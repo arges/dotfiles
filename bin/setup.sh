@@ -34,7 +34,7 @@ GCONF_SETTINGS=(
 )
 
 # distribution series / arches
-DISTS="trusty xenial yakkety"
+DISTS="trusty xenial"
 ARCH="amd64"
 
 # dotfiles repo

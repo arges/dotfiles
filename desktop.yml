@@ -1,0 +1,33 @@
+---
+- hosts: all
+  tasks:
+  - name: install packages
+    apt:
+      name: "{{ item }}"
+      state: installed
+    with_items:
+      - ansible
+      - docker.io
+      - git
+      - git-email
+      - git-extras
+      - htop
+      - jq
+      - mutt
+      - network-manager-openvpn
+      - network-manager-openvpn-gnome
+      - openssh-server
+      - packaging-dev
+      - sbuild
+      - tmux
+      - ubuntu-dev-tools
+      - vim
+  - name: setup default editor
+    alternatives:
+      name: editor
+      path: /usr/bin/vim
+  - name: disable clear-text passwords
+    replace:
+      path: /etc/ssh/sshd_config
+      regexp: '^#PasswordAuthentication yes'
+      replace: 'PasswordAuthentication no'

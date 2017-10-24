@@ -1,18 +1,11 @@
 #!/bin/bash -xe
 #
-# (C) 2013, 2014, 2015, 2016
+# (C) 2013-2017
 # Written by Chris J Arges <christopherarges@gmail.com>
 #
 
 USER="arges"
 BZR_WHOAMI="Chris J Arges <chris.j.arges@ubuntu.com>"
-
-# packages to install
-PACKAGES="vim git git-email git-extras weechat chromium-browser virt-manager \
- ubuntu-dev-tools sbuild packaging-dev mumble libvirt-bin \
- lxc openssh-server whois mutt htop uvtool-libvirt \
- network-manager-openvpn-gnome squid-deb-proxy msmtp msmtp-mta \
- pass"
 
 # gsettings to set
 GSETTINGS=(
@@ -40,13 +33,8 @@ ARCH="amd64"
 # dotfiles repo
 DOTFILE_REPO="https://github.com/arges/dotfiles"
 
-# update/upgrade
-sudo apt-get update -qq
-sudo apt-get upgrade -qqy
-sudo apt-get autoremove -qqy
-
-# install packages
-sudo apt-get -qqy install $PACKAGES
+# run ansible playbook
+sudo ansible-playbook -i "localhost," -c local desktop.yml
 
 # clone dotfiles repo
 if [ ! -d ~/.git ]; then
@@ -62,13 +50,6 @@ done
 for s in  "${GCONF_SETTINGS[@]}"; do
 	gconftool-2 --set $s
 done
-
-# set alternatives
-sudo update-alternatives --set editor /usr/bin/vim.basic
-
-# disable clear-text passwords
-sudo sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
-sudo service ssh restart
 
 # setup directories
 mkdir -p ~/src

@@ -27,6 +27,16 @@ git-lola() {
 	git log --graph --decorate --pretty=oneline --abbrev-commit --all
 }
 
+aws-creds() {
+    cat ~/.aws/credentials | tail -n2 | awk '{ printf "export %s=%s\n",toupper($1),$3 }'
+}
+
+git-branch() {
+    git rev-parse --is-inside-work-tree &> /dev/null || return;
+    printf "(%s->%s)" $(basename $(git rev-parse --show-toplevel)) $(git branch 2>/dev/null | grep '^*' | colrm 1 2)
+}
+
 export PATH=$PATH:/home/arges/src/projects/ubuntu-archive-tools
 export PATH=/home/arges/src/projects/ubuntu-dev-tools:$PATH
 export GOPATH=/home/arges/go
+export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] \[\033[01;33m\]$(git-branch)\[\033[00m\] \n$ '

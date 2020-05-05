@@ -3,11 +3,12 @@
   tasks:
   - name: install packages
     apt:
-      name: "{{ item }}"
-      state: installed
-    with_items:
+      state: present
+      force_apt_get: True
+      name:
       - ansible
       - docker.io
+      - firefox
       - git
       - git-email
       - git-extras
@@ -17,11 +18,17 @@
       - network-manager-openvpn
       - network-manager-openvpn-gnome
       - openssh-server
-      - packaging-dev
-      - sbuild
       - tmux
-      - ubuntu-dev-tools
       - vim
+  - name: install snap packages
+    snap:
+      classic: yes
+      name:
+      - goland
+      - remmina
+      - signal-desktop
+      - slack
+      - spotify
   - name: setup default editor
     alternatives:
       name: editor

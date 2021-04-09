@@ -20,6 +20,8 @@
       - openssh-server
       - tmux
       - vim
+  - name: install tmux theme
+    shell: git clone https://github.com/jimeh/tmux-themepack.git ~/.tmux-themepack
   - name: install snap packages
     snap:
       classic: yes
@@ -28,6 +30,7 @@
       - remmina
       - signal-desktop
       - slack
+      - bitwarden
       - spotify
   - name: setup default editor
     alternatives:

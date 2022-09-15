@@ -1,13 +1,21 @@
 ---
 - hosts: all
   tasks:
+  - name: setup directories
+    file:
+      path: "{{ item }}"
+      state: directory
+      recurse: no
+      mode: 0750
+    loop:
+    - "~/src"
   - name: install packages
     apt:
       state: present
       force_apt_get: True
       name:
-      - ansible
       - docker.io
+      - curl
       - firefox
       - git
       - git-email
@@ -15,29 +23,29 @@
       - htop
       - jq
       - mutt
-      - network-manager-openvpn
-      - network-manager-openvpn-gnome
-      - openssh-server
       - tmux
-      - vim
-  - name: install tmux theme
-    shell: git clone https://github.com/jimeh/tmux-themepack.git ~/.tmux-themepack
+      - fonts-powerline
+      - yubikey-manager
+      - gnupg
+      - pcscd
+      - scdaemon
+      - python3-gpg
+  - name: uninstall packages
+    apt:
+      state: absent
+      name:
+      - rustc
+      - cargo
+      - golang-go
   - name: install snap packages
     snap:
       classic: yes
       name:
-      - goland
-      - remmina
       - signal-desktop
-      - slack
+      - nvim
       - bitwarden
       - spotify
   - name: setup default editor
     alternatives:
       name: editor
-      path: /usr/bin/vim
-  - name: disable clear-text passwords
-    replace:
-      path: /etc/ssh/sshd_config
-      regexp: '^#PasswordAuthentication yes'
-      replace: 'PasswordAuthentication no'
+      path: /usr/bin/nvim

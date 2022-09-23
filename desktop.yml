@@ -14,37 +14,46 @@
       state: present
       force_apt_get: True
       name:
-      - docker.io
+      - build-essential
       - curl
+      - ddd
+      - docker.io
       - firefox
+      - fonts-powerline
       - git
       - git-email
       - git-extras
+      - gnome-clocks
+      - gnupg
+      - golang-go
       - htop
       - jq
       - mutt
-      - tmux
-      - fonts-powerline
-      - yubikey-manager
-      - gnupg
+      - nodejs
       - pcscd
-      - scdaemon
       - python3-gpg
-  - name: uninstall packages
-    apt:
-      state: absent
+      - python3-pip
+      - qemu-system-x86
+      - scdaemon
+      - tmux
+      - yubikey-manager
+  - name: install python packages
+    pip:
       name:
-      - rustc
-      - cargo
-      - golang-go
+      - docker-compose
   - name: install snap packages
     snap:
       classic: yes
       name:
       - signal-desktop
-      - nvim
       - bitwarden
       - spotify
+
+  - name: install npm packages
+    npm:
+      name: quicktype
+      global: yes
+
   - name: setup default editor
     alternatives:
       name: editor

@@ -9,8 +9,12 @@ To start:
 # setup rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
+# setup docker
+add myself to docker group
 
 # setup nvim
+install nvim via website
+
 
 ```
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
@@ -33,6 +37,8 @@ https://stackoverflow.com/questions/65889273/how-do-i-add-nvim-to-update-alterna
 
 tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+Ctrl-A Shift-i to install after sourcing
 
 # install dropbox
 https://www.dropbox.com/install-linux

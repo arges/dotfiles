@@ -33,6 +33,12 @@ Plug 'hrsh7th/vim-vsnip'
 " Some color scheme other then default
 Plug 'arcticicestudio/nord-vim'
 
+" Go plugins
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
 call plug#end()
 
 colorscheme nord
@@ -97,6 +103,7 @@ nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> gR    <cmd>lua vim.lsp.buf.replace()<CR>
 
 " Quick-fix
 nnoremap <silent> ga    <cmd>lua vim.lsp.buf.code_action()<CR>

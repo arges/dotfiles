@@ -41,3 +41,6 @@ set modeline
 
 " special keys
 inoremap <F5> <C-R>=strftime("%FT%T%z")<CR>
+
+" theme
+colorscheme habamax
